@@ -1,0 +1,107 @@
+body {
+    /* background: rgb(218, 218, 218); */
+    /* background: url("../../assets/login-background-2.jpg") ; */
+    /* background-size: cover; */
+    margin: 0;
+    padding: 0;
+
+}
+.login-container {
+    background: url("../../assets/login-background-2.jpg") ;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+}
+.login-section {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+.login-form-sec {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    justify-self: center;
+    /* margin-top: 300px; */
+}
+
+.login-container .login-form-sec .login-form {
+    padding: 0 70px;
+    /* background-color: aqua; */
+}
+
+.login-input-sec {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input {
+    height: 40px;
+    margin: 10px 0;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+.login-error-text {
+    margin-top: 15px;
+    color: #b10f0f;
+}
+.login-image-sec {
+    position: relative;
+}
+
+.login-image {
+    background-size: cover;
+    background-size: cover;
+    border-radius: 0 20px 20px 0;
+}
+
+.login-image-text-sec {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #00021b;
+    padding: 5px;
+}
+
+.login-image-text-sec h2 {
+    color: rgba(250, 250, 250, 0.897);
+}
+
+.login-section {
+    background: #fff;
+    margin: 70px 0;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+@media only screen and (max-width: 475px) {
+    .login-section {
+        position: relative;
+        height: 80vh;
+        border-radius: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .login-image {
+        width: 100%;
+    }
+    .login-form-sec {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+    }
+    .login-container .login-form-sec .login-form {
+        padding: 0 30px;
+    }
+    .login-image-sec {
+        visibility: hidden;
+    }
+}
