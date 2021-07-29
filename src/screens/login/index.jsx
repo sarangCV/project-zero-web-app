@@ -3,12 +3,15 @@ import { useHistory, Redirect } from 'react-router-dom';
 import { validateUser } from '../../api/auth';
 import './style.css'
 import loginImg from '../../assets/login-background.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 
 
 function Login() {
 
     const history = useHistory();
+    const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,6 +23,7 @@ function Login() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true)
         // history.push('/home')
         await validateUser(email, password)
         .then((res) => {
@@ -33,6 +37,7 @@ function Login() {
                 // console.log(res)
             }
         })
+        await setIsLoading(false);
     }
 
     return (
@@ -45,8 +50,13 @@ function Login() {
                             <div className="container login-input-sec">
                                 <input type="text" className="form-control login-input" placeholder="Email" onChange={(t) => setEmail(t.target.value)}/>
                                 <input type="password" className="form-control login-input" placeholder="Password" onChange={(t) => setPassword(t.target.value)}/> 
-                                <button className="btn btn-primary login-btn" type="submit" onClick={onSubmit}>Sign In</button>                       
-                            </div> 
+                                <button className="btn btn-primary login-btn" type="submit" onClick={onSubmit} disabled={isLoading}>
+                                    Sign In
+                                    {isLoading && <FontAwesomeIcon icon={faCircleNotch} spin style={{ marginLeft: 10 }}/>}
+                                    
+                                </button>                       
+                            </div>                             
+                            
                             <p className="login-error-text">{error}</p>
                         </form>
                     </div>
