@@ -96,13 +96,13 @@ function Dashboard() {
                         {noItems &&
                         <div className="alert-box">
                             <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Warning!</strong> Items or fields can't be empty on some of those fields above.
+                                <strong>Warning!</strong> Items or fields can't be empty.
                                 <button type="button" onClick={()=>setnoItems(false)} className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         </div> }   
                         {ifSuccess && 
                         <div class="alert alert-success alert-dismissible" role="alert" id="liveAlert">
-                        <strong>Items submitted</strong> You've items to database.
+                        <strong>Items submitted!</strong> Items added to the database.
                         <button type="button" onClick={()=>setifSuccess(false)} class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                       </div>}                                
                     </div>
