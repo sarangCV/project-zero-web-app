@@ -2,6 +2,75 @@
     /* background-color: aqua; */
     display: flex;
     height: 100vh;
+    
+}
+.add-list-sec {
+    background-color: #d2d2d294;
+}
+.dashboard-input-sec {
+    margin-top: 30px;
+    padding: 15px 0;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.item-add-btn {
+    width: 100%;
+    margin-top: 22px;
+    margin-left: 65px;
+    
+}
+
+.view-list-sec {
+    margin-top: 100px;
+}
+
+.alert-box {
+    /* position: absolute;
+    bottom: 0; */
+}
+
+.item-container {
+    display: flex;
+    /* overflow: scroll; */
+    height: auto;
+    background-color: #d2d2d294;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+.item-single {
+    width: 80%;
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-radius: 5px;
+
+}
+.item-single h3, p {
+    text-align: center;
+}
+
+.item-single h3 {
+    font-size: 20px;
+}
+
+.submit-btn-container .dashboard-submit-btn {
+    width: 30%;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 991px) {
+    .item-add-btn {
+        width: 70%;
+        margin-top: 22px;
+        margin-left: 0;
+    }
 }
