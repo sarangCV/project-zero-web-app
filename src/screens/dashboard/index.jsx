@@ -74,7 +74,7 @@ function Dashboard() {
                             </div>
                             <div className="col-lg-2 col-sm-12 input-container">
                                 <label>How much we paid for  it</label>
-                                <input type="text" className="form-control login-input" placeholder="Amount" onChange={(t)=>setPrice(t.target.value)}/>
+                                <input type="number" className="form-control login-input" placeholder="Amount" onChange={(t)=>setPrice(t.target.value)}/>
                              </div>
                              <div className="col-lg-2 col-sm-12 input-container">
                                 <label>From whom we borught</label>
