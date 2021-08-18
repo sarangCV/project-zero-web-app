@@ -24,6 +24,10 @@ const UpdateList = () => {
        await getItem(params.id)
        .then((res) => {
            setCurrentItem(res)
+           setItem(res.itemName)
+           setPrice(res.itemPrice)
+           setVendor(res.itemVendor)
+           setDetails(res.itemDetails)
        })
     }, [])
 
@@ -32,7 +36,7 @@ const UpdateList = () => {
         console.log(params)
 
 
-        if(item === '' && price === '' && vendor === '' && details === '') {
+        if(item === currentItem.itemName && price === currentItem.itemPrice && vendor === currentItem.itemVendor && details === currentItem.itemDetails) {
             setnoItems(true);
         }
         else {
@@ -64,7 +68,7 @@ const UpdateList = () => {
                             {noItems &&
                             <div className="alert-box">
                                 <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Warning!</strong> Items or fields can't be empty.
+                                    <strong>Warning!</strong> No updates has been made.
                                     <button type="button" onClick={()=>setnoItems(false)} className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             </div> }
