@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { addItems, getItem, updateItem } from '../../api/items';
 import './style.css'
 
 const UpdateList = () => {
 
+    const history = useHistory();
     const params = useParams()
 
     const [item, setItem] = useState('');
@@ -47,7 +48,10 @@ const UpdateList = () => {
             .then((res) => {
                 console.log("Client side",res)
                 setifSuccess(true);
-            })    
+            })
+            .then(() => {
+                history.push('/dashboard')
+            }) 
         }
     }
 

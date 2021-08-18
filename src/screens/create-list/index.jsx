@@ -36,7 +36,7 @@ const CreateList = () => {
             .then((res) => {
                 console.log("Client side",res)
                 setifSuccess(true);
-            }, [3000])
+            })
             .then(() => {
                 history.push('/dashboard')
             })  
