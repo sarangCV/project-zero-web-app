@@ -5,10 +5,10 @@ import { addItems, deleteItem } from '../../api/items';
 import { getAllItems } from '../../api/items';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-
-
-
+import moment from 'moment';
 import './style.css'
+
+moment.locale('en-IN');
 
 function Dashboard() {
 
@@ -88,25 +88,29 @@ function Dashboard() {
                                     <div className="item-single">
                                         <div className="row">
                                             <div className="col-lg-2">
-                                                <h3>Name of the item</h3>
+                                                <h3>Particulars</h3>
                                                 <p>{val.itemName}</p>
                                             </div>
                                             <div className="col-lg-2">
-                                                <h3>Price</h3>
+                                                <h3>Paid</h3>
                                                 <p>{val.itemPrice}</p>
                                             </div>
                                             <div className="col-lg-2">
-                                                <h3>Vendor</h3>
+                                                <h3>received</h3>
                                                 <p>{val.itemVendor}</p>
                                             </div>
                                             <div className="col-lg-2">
-                                                <h3>Details</h3>
+                                                <h3>Notes</h3>
                                                 <p>{val.itemDetails}</p>
                                             </div>
-                                            <div className="col-lg-2 d-flex align-items-center">
+                                            <div className="col-lg-2">
+                                                <h3>Date</h3>
+                                                <p>{moment(val.date).format('Y-M-D')}</p>
+                                            </div>
+                                            <div className="col-lg-1 d-flex align-items-center">
                                                 <FontAwesomeIcon icon={faEdit} style={{ marginLeft: 10 }} size="lg" onClick={()=> onEdit(val._id)}/>
                                             </div>
-                                            <div className="col-lg-2 d-flex align-items-center">
+                                            <div className="col-lg-1 d-flex align-items-center">
                                                 <FontAwesomeIcon icon={faTrash} style={{ marginLeft: 10 }} size="lg" onClick={() => onDelete(val._id)}/>
                                             </div>
                                         </div>                                        

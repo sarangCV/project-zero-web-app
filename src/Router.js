@@ -5,7 +5,6 @@ import Dashboard from './screens/dashboard';
 import CreateList from './screens/create-list';
 import UpdateList from './screens/update-list';
 
-
 import PrivateRoute from './screens/PrivateRoute';
 
 

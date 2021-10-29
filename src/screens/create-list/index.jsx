@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import { addItems } from '../../api/items';
+import DatePicker from 'react-date-picker';
 import './style.css'
 
 const CreateList = () => {
@@ -11,6 +12,7 @@ const CreateList = () => {
     const [price, setPrice] = useState('');
     const [vendor, setVendor] = useState('');
     const [details, setDetails] = useState('');
+    const [date, setDate] = useState(new Date());
 
     const [noItems, setnoItems] = useState(false);
     const [ifSuccess, setifSuccess] = useState(false)
@@ -18,7 +20,7 @@ const CreateList = () => {
 
 
     const addItem = async () => {
-
+        console.log(date);
 
         if(item === '' || price === '' || vendor === '' || details === '') {
             setnoItems(true);
@@ -30,7 +32,8 @@ const CreateList = () => {
                 itemName: item,
                 itemPrice: price,
                 itemVendor: vendor,
-                itemDetails: details
+                itemDetails: details,
+                date: date
             }
             await addItems(totalItems)
             .then((res) => {
@@ -64,6 +67,17 @@ const CreateList = () => {
                         </div>
                         <div className="dashboard-input-sec">
                             <div className="column d-flex flex-column align-items-center">
+                                <div className="col-lg-10 col-sm-12 input-container">
+                                    <label>Choose a date</label>
+                                    <div className="date-picker-sec">
+                                        <DatePicker
+                                            onChange={(date)=> {setDate(date)}}
+                                            value={date}
+                                            className="date-picker"  
+                                        />   
+                                    </div>
+                                    
+                                </div>  
                                 <div className="col-lg-10 col-sm-12 input-container">
                                     <label>What we purchase</label>
                                     <input type="text" className="form-control login-input" placeholder="Enter item" onChange={(t)=>setItem(t.target.value)}/>

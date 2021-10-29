@@ -23,11 +23,11 @@
     align-items: center;
     justify-content: center;
     margin: 10px 0;
-    padding: 10px 0;
+    padding: 20px 0;
     /* height: 50vh; */
 }
 .item-single {
-    width: 90%;
+    width: 95%;
     background-color: #fff;
     margin: 10px 0;
     padding: 10px 0;

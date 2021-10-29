@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { addItems, getItem, updateItem } from '../../api/items';
+import DatePicker from 'react-date-picker';
+import moment from 'moment';
 import './style.css'
 
 const UpdateList = () => {
@@ -12,6 +14,7 @@ const UpdateList = () => {
     const [price, setPrice] = useState('');
     const [vendor, setVendor] = useState('');
     const [details, setDetails] = useState('');
+    const [date, setDate] = useState(new Date());
 
     const [currentItem, setCurrentItem] = useState('')
 
@@ -20,7 +23,7 @@ const UpdateList = () => {
     const [initialscreen, setInitialscreen] = useState(true);
 
 
-    useEffect( async() => {
+    useEffect( async () => {
        await getItem(params.id)
        .then((res) => {
            setCurrentItem(res)
@@ -28,6 +31,8 @@ const UpdateList = () => {
            setPrice(res.itemPrice)
            setVendor(res.itemVendor)
            setDetails(res.itemDetails)
+           setDate(new Date(res.date))
+           console.log(date);
        })
     }, [])
 
@@ -35,8 +40,7 @@ const UpdateList = () => {
 
         console.log(params)
 
-
-        if(item === currentItem.itemName && price === currentItem.itemPrice && vendor === currentItem.itemVendor && details === currentItem.itemDetails) {
+        if(item === currentItem.itemName && price === currentItem.itemPrice && vendor === currentItem.itemVendor && details === currentItem.itemDetails && date === currentItem.date) {
             setnoItems(true);
         }
         else {
@@ -46,8 +50,10 @@ const UpdateList = () => {
                 itemName: item,
                 itemPrice: price,
                 itemVendor: vendor,
-                itemDetails: details
+                itemDetails: details,
+                date: date
             }
+            console.log('Total Items::', totalItems);
             await updateItem(totalItems, params.id)
             .then((res) => {
                 console.log("Client side",res)
@@ -80,6 +86,17 @@ const UpdateList = () => {
                         </div>
                         <div className="dashboard-input-sec">
                             <div className="column d-flex flex-column align-items-center">
+                                <div className="col-lg-10 col-sm-12 input-container">
+                                    <label>Choose a date</label>
+                                    <div className="date-picker-sec">
+                                        <DatePicker
+                                            onChange={(date)=> {setDate(date)}}
+                                            value={date}
+                                            className="date-picker"  
+                                        />   
+                                    </div>
+                                    
+                                </div> 
                                 <div className="col-lg-10 col-sm-12 input-container">
                                     <label>What we purchase</label>
                                     <input type="text" className="form-control login-input" placeholder={currentItem.itemName ? currentItem.itemName : 'null'} onChange={(t)=>setItem(t.target.value)}/>
