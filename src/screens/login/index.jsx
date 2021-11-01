@@ -18,7 +18,7 @@ function Login() {
 
     useEffect(() => {
         const isLogged = window.sessionStorage.getItem('sarangcv');
-        isLogged ? history.push('/dashboard') : (<Redirect to={'/'}/>)
+        isLogged ? history.push('/home') : (<Redirect to={'/'}/>)
     })
 
     const onSubmit = async (e) => {
@@ -30,7 +30,7 @@ function Login() {
             console.log(res)
             const {token} = res;
             if(token) {
-                history.push('/dashboard')
+                history.push('/home')
             }
             else {
                 setError(res)

@@ -1,16 +1,15 @@
 import React, {useEffect} from 'react'
 import { useHistory, Redirect } from 'react-router-dom';
 import { useState } from 'react';
-import { addItems, deleteItem } from '../../api/items';
-import { getAllItems } from '../../api/items';
+import { addItems, deleteItem, getAllItems } from '../../api/rn-items';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
-import './style.css'
+// import './style.css'
 
 moment.locale('en-IN');
 
-function Dashboard() {
+const RMPurchase = () => {
 
     const history = useHistory();
 
@@ -47,7 +46,7 @@ function Dashboard() {
     })
 
     const onSubmit = async () => {
-        history.push('/create-list')
+        history.push('/rm-create-list')
     }
 
     const onDelete = async (id) => {
@@ -56,7 +55,7 @@ function Dashboard() {
     }
 
     const onEdit = async (id) => {
-        history.push(`/update/${id}`)
+        history.push(`/rm/update/${id}`)
     }
 
     return (
@@ -65,7 +64,7 @@ function Dashboard() {
             <div className="container">               
                 <div className="view-list-sec">   
                     <div className="view-list-title">
-                        <h1>Added list</h1>  
+                        <h1>RM Purchased list</h1>  
                         {noItems &&
                         <div className="alert-box">
                             <div className="alert alert-warning alert-dismissible fade show" role="alert">
@@ -87,27 +86,31 @@ function Dashboard() {
                                 return(                            
                                     <div className="item-single">
                                         <div className="row">
-                                            <div className="col-lg-2">
+                                             <div className="col-lg-2">
                                                 <h3>Date</h3>
                                                 <p>{moment(val.date).format('Y-M-D')}</p>
                                             </div>
                                             <div className="col-lg-2">
-                                                <h3>Particulars</h3>
-                                                <p>{val.itemName}</p>
+                                                <h3>Particular</h3>
+                                                <p>{val.rmParticular}</p>
+                                            </div>
+                                            <div className="col-lg-1">
+                                                <h3>Quantiy</h3>
+                                                <p>{val.rmQuantity}</p>
+                                            </div>
+                                            <div className="col-lg-1">
+                                                <h3>Price</h3>
+                                                <p>{val.rmPrice}</p>
                                             </div>
                                             <div className="col-lg-2">
-                                                <h3>Paid</h3>
-                                                <p>{val.itemPrice}</p>
+                                                <h3>Commision</h3>
+                                                <p>{val.rmCommission}</p>
                                             </div>
                                             <div className="col-lg-2">
-                                                <h3>received</h3>
-                                                <p>{val.itemVendor}</p>
+                                                <h3>Note</h3>
+                                                <p>{val.rmNote}</p>
                                             </div>
-                                            <div className="col-lg-2">
-                                                <h3>Notes</h3>
-                                                <p>{val.itemDetails}</p>
-                                            </div>
-                                            
+
                                             <div className="col-lg-1 d-flex align-items-center">
                                                 <FontAwesomeIcon icon={faEdit} style={{ marginLeft: 10 }} size="lg" onClick={()=> onEdit(val._id)}/>
                                             </div>
@@ -128,4 +131,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard;
+export default RMPurchase;

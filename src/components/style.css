@@ -1,0 +1,19 @@
+.tile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 420px;
+    background-color: #FCD5CE;
+    border-radius: 5px;
+}
+
+.tile-container:hover {
+    background-color: #FEC5BB;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.tile-container h3 {
+    color: rgb(28, 27, 27);
+}

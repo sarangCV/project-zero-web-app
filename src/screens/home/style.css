@@ -1,0 +1,24 @@
+/* GENERIC STYLES */
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.home-buttons-sec {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.home-tile-sec {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
