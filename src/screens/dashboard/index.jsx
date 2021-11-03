@@ -107,13 +107,15 @@ function Dashboard() {
                                                 <h3>Notes</h3>
                                                 <p>{val.itemDetails}</p>
                                             </div>
+                                            <div className="col-lg-2 dashboard-action-btn-sec">
+                                                    <div className="col-lg-6 d-flex align-items-center">
+                                                        <FontAwesomeIcon icon={faEdit} style={{ marginLeft: 10 }} size="lg" onClick={()=> onEdit(val._id)}/>
+                                                    </div>
+                                                    <div className="col-lg-6 d-flex align-items-center">
+                                                        <FontAwesomeIcon icon={faTrash} style={{ marginLeft: 10 }} size="lg" onClick={() => onDelete(val._id)}/>
+                                                    </div>
+                                            </div>
                                             
-                                            <div className="col-lg-1 d-flex align-items-center">
-                                                <FontAwesomeIcon icon={faEdit} style={{ marginLeft: 10 }} size="lg" onClick={()=> onEdit(val._id)}/>
-                                            </div>
-                                            <div className="col-lg-1 d-flex align-items-center">
-                                                <FontAwesomeIcon icon={faTrash} style={{ marginLeft: 10 }} size="lg" onClick={() => onDelete(val._id)}/>
-                                            </div>
                                         </div>                                        
                                     </div>
                                 )

@@ -48,3 +48,17 @@
     width: 30%;
     margin-top: 15px;
 }
+.dashboard-action-btn-sec {
+    display: flex;
+}
+@media only screen and (max-width: 991px) {
+    .dashboard-action-btn-sec {
+        justify-content: space-around;
+    }
+
+    .submit-btn-container .dashboard-submit-btn {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
