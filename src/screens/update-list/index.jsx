@@ -85,7 +85,7 @@ const UpdateList = () => {
                             </div>}
                         </div>
                         <div className="dashboard-input-sec">
-                            <div className="column d-flex flex-column align-items-center">
+                            <div className="column d-flex flex-column align-items-left">
                                 <div className="col-lg-10 col-sm-12 input-container">
                                     <label>Choose a date</label>
                                     <div className="date-picker-sec">
